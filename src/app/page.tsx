@@ -414,13 +414,13 @@ export default function Home() {
             {[
               {
                 name: "Starter", price: "Rp 3jt", sub: "sekali bayar",
-                desc: "Buat yang baru mau mulai.",
+                desc: "Landing Page + Katalog Produk",
                 features: ["Toko online siap jualan", "Tombol order WhatsApp", "Hingga 10 produk", "Domain gratis 1 tahun", "SSL & hosting setup", "Support via WhatsApp"],
                 highlight: false, cta: "Mulai dengan Starter", ctaStyle: "border"
               },
               {
                 name: "Pro", price: "Rp 7,5jt", sub: "sekali bayar",
-                desc: "Buat yang serius mau berkembang.",
+                desc: "Toko online yang bisa langsung terima order dan pembayaran.",
                 features: ["Semua fitur Starter", "Toko WooCommerce lengkap", "Payment gateway (Midtrans)", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan"],
                 highlight: true, cta: "Mulai dengan Pro", ctaStyle: "coral"
               },
