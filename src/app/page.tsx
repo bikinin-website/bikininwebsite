@@ -461,7 +461,7 @@ export default function Home() {
           </div>
           <motion.p className="text-center text-sm text-gray-400 mt-12" {...fadeUp(0.3)}>
             Masih bingung mau pilih yang mana?{" "}
-            <a href="https://wa.me/6281234567890" className="text-[#3B3F9E] font-semibold hover:underline">Ngobrol sama kami dulu →</a>
+            <a href="https://wa.me/628561803888" className="text-[#3B3F9E] font-semibold hover:underline">Ngobrol sama kami dulu →</a>
           </motion.p>
         </div>
       </section>
@@ -513,7 +513,7 @@ export default function Home() {
             <p className="text-gray-400 text-sm leading-relaxed max-w-xs mb-8">
               Kami bantu penjual Indonesia punya toko sendiri — yang beneran punya sendiri.
             </p>
-            <a href="https://wa.me/6281234567890" className="inline-flex items-center gap-2 bg-[#FF5F4B] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#e54e3a] transition-colors">
+            <a href="https://wa.me/628561803888" className="inline-flex items-center gap-2 bg-[#FF5F4B] text-white px-6 py-3 rounded-full text-sm font-bold hover:bg-[#e54e3a] transition-colors">
               <MessageCircle size={16} /> Ngobrol Sama Kami
             </a>
           </div>
