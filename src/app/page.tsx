@@ -449,8 +449,8 @@ export default function Home() {
                 subscription: { price: "Rp 6,5jt", sub: "setup + Rp 1jt/bulan" },
                 desc: "Toko online yang bisa langsung terima order dan pembayaran.",
                 features: billingType === "onetime"
-                  ? ["Semua fitur Starter", "Toko WooCommerce lengkap", "Payment gateway (Midtrans)", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan"]
-                  : ["Semua fitur Starter", "Toko WooCommerce lengkap", "Payment gateway (Midtrans)", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan", "Update konten bulanan", "Prioritas support"],
+                  ? ["Semua fitur Starter", "Toko online siap pakai", "Payment gateway", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan"]
+                  : ["Semua fitur Starter", "Toko online siap pakai", "Payment gateway", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan", "Update konten bulanan", "Prioritas support"],
                 highlight: true, cta: billingType === "onetime" ? "Mulai dengan Pro" : "Langganan Pro", ctaStyle: "coral"
               },
               {
