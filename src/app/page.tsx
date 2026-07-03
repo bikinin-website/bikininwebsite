@@ -50,6 +50,7 @@ const avatars = ["V", "R", "B", "M", "A"];
 const heroWords = ["Toko", "Kamu,", "Aturan", "Kamu."];
 
 export default function Home() {
+  const [billingType, setBillingType] = useState<"onetime" | "subscription">("onetime");
   const heroRef = useRef(null);
   const { scrollYProgress: heroProgress } = useScroll({
     target: heroRef,
@@ -408,24 +409,57 @@ export default function Home() {
           <motion.div className="text-center mb-16" {...fadeUp()}>
             <p className="text-[#FF5F4B] text-xs uppercase tracking-[0.2em] font-bold mb-4">Harga</p>
             <h2 className="text-4xl md:text-5xl font-black text-[#3B3F9E] mb-4">Pilih yang pas buat tokomu.</h2>
-            <p className="text-gray-500 text-lg">Bayar sekali, selamanya milikmu. Nggak ada biaya bulanan, nggak ada kejutan.</p>
+            <p className="text-gray-500 text-lg mb-10">Bayar sekali, atau cicil bulanan — terserah kamu.</p>
+
+            {/* Toggle */}
+            <div className="inline-flex items-center gap-4 bg-white border border-gray-200 rounded-full p-1.5 shadow-sm">
+              <button
+                onClick={() => setBillingType("onetime")}
+                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${billingType === "onetime"
+                  ? "bg-[#3B3F9E] text-white shadow-md"
+                  : "text-gray-400 hover:text-gray-600"
+                  }`}
+              >
+                Bayar Sekali
+              </button>
+              <button
+                onClick={() => setBillingType("subscription")}
+                className={`px-6 py-2.5 rounded-full text-sm font-bold transition-all ${billingType === "subscription"
+                  ? "bg-[#3B3F9E] text-white shadow-md"
+                  : "text-gray-400 hover:text-gray-600"
+                  }`}
+              >
+                Berlangganan
+              </button>
+            </div>
           </motion.div>
+
           <div className="grid md:grid-cols-3 gap-8 items-center">
             {[
               {
-                name: "Starter", price: "Rp 3jt", sub: "sekali bayar",
-                desc: "Landing Page + Katalog Produk",
-                features: ["Toko online siap jualan", "Tombol order WhatsApp", "Hingga 10 produk", "Domain gratis 1 tahun", "SSL & hosting setup", "Support via WhatsApp"],
-                highlight: false, cta: "Mulai dengan Starter", ctaStyle: "border"
+                name: "Starter",
+                onetime: { price: "Rp 3jt", sub: "sekali bayar" },
+                subscription: { price: "Rp 1,5jt", sub: "setup + Rp 150rb/bulan" },
+                desc: "Landing page + katalog produk.",
+                features: billingType === "onetime"
+                  ? ["Landing page + katalog produk", "Tombol order WhatsApp", "Hingga 10 produk", "Domain gratis 1 tahun", "SSL & hosting setup", "Support via WhatsApp"]
+                  : ["Landing page + katalog produk", "Tombol order WhatsApp", "Hingga 10 produk", "Domain gratis 1 tahun", "SSL & hosting setup", "Support via WhatsApp", "Maintenance bulanan", "Minor update gratis"],
+                highlight: false, cta: billingType === "onetime" ? "Mulai dengan Starter" : "Langganan Starter", ctaStyle: "border"
               },
               {
-                name: "Pro", price: "Rp 7,5jt", sub: "sekali bayar",
+                name: "Pro",
+                onetime: { price: "Rp 7,5jt", sub: "sekali bayar" },
+                subscription: { price: "Rp 3,5jt", sub: "setup + Rp 300rb/bulan" },
                 desc: "Toko online yang bisa langsung terima order dan pembayaran.",
-                features: ["Semua fitur Starter", "Toko WooCommerce lengkap", "Payment gateway (Midtrans)", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan"],
-                highlight: true, cta: "Mulai dengan Pro", ctaStyle: "coral"
+                features: billingType === "onetime"
+                  ? ["Semua fitur Starter", "Toko WooCommerce lengkap", "Payment gateway (Midtrans)", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan"]
+                  : ["Semua fitur Starter", "Toko WooCommerce lengkap", "Payment gateway (Midtrans)", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan", "Update konten bulanan", "Prioritas support"],
+                highlight: true, cta: billingType === "onetime" ? "Mulai dengan Pro" : "Langganan Pro", ctaStyle: "coral"
               },
               {
-                name: "Custom", price: "Hubungi Kami", sub: "harga menyesuaikan",
+                name: "Custom",
+                onetime: { price: "Hubungi Kami", sub: "harga menyesuaikan" },
+                subscription: { price: "Hubungi Kami", sub: "harga menyesuaikan" },
                 desc: "Untuk kebutuhan yang lebih kompleks.",
                 features: ["Semua fitur Pro", "Dibangun dari nol", "Desain 100% unik", "Fitur khusus sesuai kebutuhan", "Payment gateway + ongkir otomatis", "Prioritas support", "Konsultasi ongoing"],
                 highlight: false, cta: "Ngobrol Dulu →", ctaStyle: "dark"
@@ -440,8 +474,12 @@ export default function Home() {
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF5F4B] text-white text-xs font-bold px-5 py-1.5 rounded-full tracking-wide uppercase whitespace-nowrap">Paling Banyak Dipilih</div>
                 )}
                 <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${p.highlight ? "text-indigo-300" : "text-gray-400"}`}>{p.name}</p>
-                <p className={`text-3xl font-black mb-0.5 ${p.highlight ? "text-white" : "text-gray-800"}`}>{p.price}</p>
-                <p className={`text-xs mb-2 ${p.highlight ? "text-indigo-300" : "text-gray-400"}`}>{p.sub}</p>
+                <p className={`text-3xl font-black mb-0.5 ${p.highlight ? "text-white" : "text-gray-800"}`}>
+                  {billingType === "onetime" ? p.onetime.price : p.subscription.price}
+                </p>
+                <p className={`text-xs mb-2 ${p.highlight ? "text-indigo-300" : "text-gray-400"}`}>
+                  {billingType === "onetime" ? p.onetime.sub : p.subscription.sub}
+                </p>
                 <p className={`text-sm mb-6 font-medium ${p.highlight ? "text-indigo-200" : "text-gray-500"}`}>{p.desc}</p>
                 <ul className="space-y-3 mb-8">
                   {p.features.map(f => (
@@ -461,7 +499,7 @@ export default function Home() {
           </div>
           <motion.p className="text-center text-sm text-gray-400 mt-12" {...fadeUp(0.3)}>
             Masih bingung mau pilih yang mana?{" "}
-            <a href="https://wa.me/628561803888" className="text-[#3B3F9E] font-semibold hover:underline">Ngobrol sama kami dulu →</a>
+            <a href="https://wa.me/6281803693888" className="text-[#3B3F9E] font-semibold hover:underline">Konsultasi Gratis→</a>
           </motion.p>
         </div>
       </section>
