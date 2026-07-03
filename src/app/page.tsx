@@ -371,9 +371,9 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: "Rina S.", location: "Bandung", store: "Toko Hijab", text: "Udah capek kena komisi terus di Shopee. Sekarang hasilnya masuk semua ke kantong sendiri. 7 hari udah live, nggak nyangka secepet itu.", initial: "R", revenue: "+Rp 8jt/bulan" },
-              { name: "Budi S.", location: "Surabaya", store: "Kedai Kopi", text: "Saya nggak ngerti teknologi sama sekali. Tapi semua diurus sama timnya. Tinggal terima beres. Pelanggan sekarang langsung order dari website.", initial: "B", revenue: "+Rp 12jt/bulan" },
-              { name: "Mega W.", location: "Jakarta", store: "Toko Skincare", text: "Yang paling kerasa — saya sekarang tahu siapa aja yang beli. Bisa langsung saya hubungi lagi. Repeat order naik banyak banget.", initial: "M", revenue: "+Rp 15jt/bulan" },
+              { name: "Rina S.", location: "Bandung", store: "Toko Hijab", text: "Udah capek kena komisi terus di Shopee. Sekarang hasilnya masuk semua ke kantong sendiri. 7 hari udah langsung bisa jualan, nggak nyangka secepet itu.", initial: "R", revenue: "+Rp 8jt/bulan" },
+              { name: "Budi S.", location: "Surabaya", store: "Kedai Kopi", text: "Saya nggak ngerti teknologi sama sekali. Tapi semua diurus sama tim Bikinin Website. Tinggal terima beres. Pelanggan sekarang langsung order dari website.", initial: "B", revenue: "+Rp 12jt/bulan" },
+              { name: "Mega W.", location: "Jakarta", store: "Toko Skincare", text: "Yang paling kerasa, saya sekarang tahu siapa aja yang beli. Bisa langsung saya hubungi lagi. Repeat order naik banyak banget.", initial: "M", revenue: "+Rp 15jt/bulan" },
             ].map((t, i) => (
               <motion.div
                 key={t.name}
@@ -405,8 +405,8 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <motion.div className="text-center mb-16" {...fadeUp()}>
             <p className="text-[#FF5F4B] text-xs uppercase tracking-[0.2em] font-bold mb-4">Harga</p>
-            <h2 className="text-4xl md:text-5xl font-black text-[#3B3F9E] mb-4">Pilih yang pas buat tokomu.</h2>
-            <p className="text-gray-500 text-lg mb-10">Bayar sekali, atau cicil bulanan — terserah kamu.</p>
+            <h2 className="text-4xl md:text-5xl font-black text-[#3B3F9E] mb-4">Pilih yang pas buat kebutuhan kamu.</h2>
+            <p className="text-gray-500 text-lg mb-10">Bayar sekali, atau berlangganan per bulan, pilihan ada di tangan kamu.</p>
 
             {/* Toggle */}
             <div className="inline-flex items-center gap-4 bg-white border border-gray-200 rounded-full p-1.5 shadow-sm">
