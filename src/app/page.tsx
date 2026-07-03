@@ -94,7 +94,7 @@ export default function Home() {
           <a href="#harga" className="hover:text-[#3B3F9E] transition-colors">Harga</a>
           <a href="#testimoni" className="hover:text-[#3B3F9E] transition-colors">Testimoni</a>
         </div>
-        <button className="bg-[#FF5F4B] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#e54e3a] hover:shadow-lg hover:shadow-[#FF5F4B]/30 hover:-translate-y-0.5 transition-all">
+        <button onClick={() => document.getElementById('harga')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#FF5F4B] text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-[#e54e3a] hover:shadow-lg hover:shadow-[#FF5F4B]/30 hover:-translate-y-0.5 transition-all">
           Mulai Sekarang
         </button>
       </nav>
@@ -157,11 +157,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.7 }}
             >
-              <button className="bg-[#FF5F4B] text-white px-8 py-4 rounded-full font-bold text-base hover:bg-[#e54e3a] hover:shadow-xl hover:shadow-[#FF5F4B]/25 hover:-translate-y-0.5 transition-all flex items-center gap-2">
+              <button onClick={() => document.getElementById('harga')?.scrollIntoView({ behavior: 'smooth' })} className="bg-[#FF5F4B] text-white px-8 py-4 rounded-full font-bold text-base hover:bg-[#e54e3a] hover:shadow-xl hover:shadow-[#FF5F4B]/25 hover:-translate-y-0.5 transition-all flex items-center gap-2">
                 Mulai Sekarang <ArrowRight size={16} />
-              </button>
-              <button className="text-[#3B3F9E] font-semibold text-base hover:underline flex items-center gap-1">
-                Lihat Contoh Toko <ChevronRight size={16} />
               </button>
             </motion.div>
             <motion.div
@@ -439,7 +436,7 @@ export default function Home() {
               {
                 name: "Starter",
                 onetime: { price: "Rp 3jt", sub: "sekali bayar" },
-                subscription: { price: "Rp 1,5jt", sub: "setup + Rp 150rb/bulan" },
+                subscription: { price: "Rp 2,5jt", sub: "setup + Rp 500rb/bulan" },
                 desc: "Landing page + katalog produk.",
                 features: billingType === "onetime"
                   ? ["Landing page + katalog produk", "Tombol order WhatsApp", "Hingga 10 produk", "Domain gratis 1 tahun", "SSL & hosting setup", "Support via WhatsApp"]
@@ -449,7 +446,7 @@ export default function Home() {
               {
                 name: "Pro",
                 onetime: { price: "Rp 7,5jt", sub: "sekali bayar" },
-                subscription: { price: "Rp 3,5jt", sub: "setup + Rp 300rb/bulan" },
+                subscription: { price: "Rp 6,5jt", sub: "setup + Rp 1jt/bulan" },
                 desc: "Toko online yang bisa langsung terima order dan pembayaran.",
                 features: billingType === "onetime"
                   ? ["Semua fitur Starter", "Toko WooCommerce lengkap", "Payment gateway (Midtrans)", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan"]
