@@ -436,62 +436,62 @@ export default function Home() {
               {
                 name: "Starter",
                 onetime: { price: "Rp 3jt", sub: "sekali bayar" },
-                subscription: { price: "Rp 2,5jt", sub: "setup + Rp 500rb/bulan" },
+                subscription: { price: "Rp 2,5jt", sub: "setup + biaya maintenance per bulan" },
                 desc: "Landing page + katalog produk.",
                 features: billingType === "onetime"
-                  ? ["Landing page + katalog produk", "Tombol order WhatsApp", "Hingga 10 produk", "Domain gratis 1 tahun", "SSL & hosting setup", "Support via WhatsApp"]
-                  : ["Landing page + katalog produk", "Tombol order WhatsApp", "Hingga 10 produk", "Domain gratis 1 tahun", "SSL & hosting setup", "Support via WhatsApp", "Maintenance bulanan", "Minor update gratis"],
+                  ? ["Landing page + katalog produk", "Tombol order WhatsApp", "Domain gratis 1 tahun*", "SSL & hosting setup", "Support via WhatsApp"]
+                  : ["Landing page + katalog produk", "Tombol order WhatsApp", "Domain gratis 1 tahun*", "SSL & hosting setup", "Support via WhatsApp", "Maintenance bulanan", "Konsultasi ongoing],
                 highlight: false, cta: billingType === "onetime" ? "Mulai dengan Starter" : "Langganan Starter", ctaStyle: "border"
               },
-              {
-                name: "Pro",
-                onetime: { price: "Rp 7,5jt", sub: "sekali bayar" },
-                subscription: { price: "Rp 6,5jt", sub: "setup + Rp 1jt/bulan" },
-                desc: "Toko online yang bisa langsung terima order dan pembayaran.",
-                features: billingType === "onetime"
-                  ? ["Semua fitur Starter", "Toko online siap pakai", "Payment gateway", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan"]
-                  : ["Semua fitur Starter", "Toko online siap pakai", "Payment gateway", "Produk unlimited", "Desain custom", "Integrasi sosmed & WhatsApp", "Laporan penjualan", "Update konten bulanan", "Prioritas support"],
-                highlight: true, cta: billingType === "onetime" ? "Mulai dengan Pro" : "Langganan Pro", ctaStyle: "coral"
+            {
+              name: "Pro",
+            onetime: {price: "Rp 7,5jt", sub: "sekali bayar" },
+            subscription: {price: "Rp 6,5jt", sub: "setup + biaya maintenance per bulan" },
+            desc: "Toko online yang bisa langsung terima order dan pembayaran.",
+            features: billingType === "onetime"
+            ? ["Semua fitur Starter", "Toko online siap pakai", "Payment gateway", "Desain custom", "Integrasi sosmed & WhatsApp", "Dashboard penjualan"]
+            : ["Semua fitur Starter", "Toko online siap pakai", "Payment gateway", "Desain custom", "Integrasi sosmed & WhatsApp", "Dashboard penjualan", "Update konten bulanan", "Support prioritas"],
+            highlight: true, cta: billingType === "onetime" ? "Mulai dengan Pro" : "Langganan Pro", ctaStyle: "coral"
               },
-              {
-                name: "Custom",
-                onetime: { price: "Hubungi Kami", sub: "harga menyesuaikan" },
-                subscription: { price: "Hubungi Kami", sub: "harga menyesuaikan" },
-                desc: "Untuk kebutuhan yang lebih kompleks.",
-                features: ["Semua fitur Pro", "Dibangun dari nol", "Desain 100% unik", "Fitur khusus sesuai kebutuhan", "Payment gateway + ongkir otomatis", "Prioritas support", "Konsultasi ongoing"],
-                highlight: false, cta: "Ngobrol Dulu →", ctaStyle: "dark"
+            {
+              name: "Custom",
+            onetime: {price: "Hubungi Kami", sub: "harga menyesuaikan" },
+            subscription: {price: "Hubungi Kami", sub: "harga menyesuaikan" },
+            desc: "Untuk kebutuhan yang lebih kompleks.",
+            features: ["Semua fitur Pro", "Dibangun dari nol", "Desain 100% unik", "Fitur khusus sesuai kebutuhan", "Prioritas support", "Konsultasi ongoing"],
+            highlight: false, cta: "Ngobrol Dulu →", ctaStyle: "dark"
               },
             ].map((p, i) => (
-              <motion.div
-                key={p.name}
-                className={`rounded-2xl p-8 relative ${p.highlight ? "bg-[#3B3F9E] shadow-2xl shadow-[#3B3F9E]/30 scale-105" : "bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-shadow"}`}
-                {...fadeUp(i * 0.1)}
-              >
-                {p.highlight && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF5F4B] text-white text-xs font-bold px-5 py-1.5 rounded-full tracking-wide uppercase whitespace-nowrap">Paling Banyak Dipilih</div>
-                )}
-                <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${p.highlight ? "text-indigo-300" : "text-gray-400"}`}>{p.name}</p>
-                <p className={`text-3xl font-black mb-0.5 ${p.highlight ? "text-white" : "text-gray-800"}`}>
-                  {billingType === "onetime" ? p.onetime.price : p.subscription.price}
-                </p>
-                <p className={`text-xs mb-2 ${p.highlight ? "text-indigo-300" : "text-gray-400"}`}>
-                  {billingType === "onetime" ? p.onetime.sub : p.subscription.sub}
-                </p>
-                <p className={`text-sm mb-6 font-medium ${p.highlight ? "text-indigo-200" : "text-gray-500"}`}>{p.desc}</p>
-                <ul className="space-y-3 mb-8">
-                  {p.features.map(f => (
-                    <li key={f} className={`flex items-start gap-2 text-sm ${p.highlight ? "text-indigo-100" : "text-gray-600"}`}>
-                      <Check size={15} className="text-[#FF5F4B] mt-0.5 flex-shrink-0" /> {f}
-                    </li>
-                  ))}
-                </ul>
-                <button className={`w-full py-3.5 rounded-full font-bold transition-all ${p.ctaStyle === "coral" ? "bg-[#FF5F4B] text-white hover:bg-[#e54e3a]" :
-                  p.ctaStyle === "dark" ? "bg-[#1a1d4e] text-white hover:bg-[#0f1133]" :
-                    "border-2 border-[#3B3F9E] text-[#3B3F9E] hover:bg-[#3B3F9E] hover:text-white"
-                  }`}>
-                  {p.cta}
-                </button>
-              </motion.div>
+            <motion.div
+              key={p.name}
+              className={`rounded-2xl p-8 relative ${p.highlight ? "bg-[#3B3F9E] shadow-2xl shadow-[#3B3F9E]/30 scale-105" : "bg-white border border-gray-100 shadow-sm hover:shadow-lg transition-shadow"}`}
+              {...fadeUp(i * 0.1)}
+            >
+              {p.highlight && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-[#FF5F4B] text-white text-xs font-bold px-5 py-1.5 rounded-full tracking-wide uppercase whitespace-nowrap">Paling Banyak Dipilih</div>
+              )}
+              <p className={`text-xs font-bold uppercase tracking-widest mb-1 ${p.highlight ? "text-indigo-300" : "text-gray-400"}`}>{p.name}</p>
+              <p className={`text-3xl font-black mb-0.5 ${p.highlight ? "text-white" : "text-gray-800"}`}>
+                {billingType === "onetime" ? p.onetime.price : p.subscription.price}
+              </p>
+              <p className={`text-xs mb-2 ${p.highlight ? "text-indigo-300" : "text-gray-400"}`}>
+                {billingType === "onetime" ? p.onetime.sub : p.subscription.sub}
+              </p>
+              <p className={`text-sm mb-6 font-medium ${p.highlight ? "text-indigo-200" : "text-gray-500"}`}>{p.desc}</p>
+              <ul className="space-y-3 mb-8">
+                {p.features.map(f => (
+                  <li key={f} className={`flex items-start gap-2 text-sm ${p.highlight ? "text-indigo-100" : "text-gray-600"}`}>
+                    <Check size={15} className="text-[#FF5F4B] mt-0.5 flex-shrink-0" /> {f}
+                  </li>
+                ))}
+              </ul>
+              <button className={`w-full py-3.5 rounded-full font-bold transition-all ${p.ctaStyle === "coral" ? "bg-[#FF5F4B] text-white hover:bg-[#e54e3a]" :
+                p.ctaStyle === "dark" ? "bg-[#1a1d4e] text-white hover:bg-[#0f1133]" :
+                  "border-2 border-[#3B3F9E] text-[#3B3F9E] hover:bg-[#3B3F9E] hover:text-white"
+                }`}>
+                {p.cta}
+              </button>
+            </motion.div>
             ))}
           </div>
           <motion.p className="text-center text-sm text-gray-400 mt-12" {...fadeUp(0.3)}>
